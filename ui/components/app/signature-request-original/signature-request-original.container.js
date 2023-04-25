@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
+import { MESSAGE_TYPE } from '../../../../shared/constants/app';
 import { goHome, cancelMsgs, showModal } from '../../../store/actions';
 import {
   accountsWithSendEtherInfoSelector,
@@ -23,7 +24,6 @@ import {
   isAddressLedger,
   getNativeCurrency,
 } from '../../../ducks/metamask/metamask';
-import { MESSAGE_TYPE } from '../../../../shared/constants/app';
 import SignatureRequestOriginal from './signature-request-original.component';
 
 function mapStateToProps(state, ownProps) {

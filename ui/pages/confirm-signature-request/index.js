@@ -16,9 +16,9 @@ import {
   getSelectedAccount,
   ///: END:ONLY_INCLUDE_IN
 } from '../../selectors';
+import { MESSAGE_TYPE } from '../../../shared/constants/app';
 import { TransactionStatus } from '../../../shared/constants/transaction';
 import { getSendTo } from '../../ducks/send';
-import { MESSAGE_TYPE } from '../../../shared/constants/app';
 
 const SIGN_MESSAGE_TYPE = {
   MESSAGE: 'message',
