@@ -259,6 +259,7 @@ export default class MetamaskController extends EventEmitter {
         MESSAGE_TYPE.ETH_SIGN,
         MESSAGE_TYPE.PERSONAL_SIGN,
         MESSAGE_TYPE.ETH_SIGN_TYPED_DATA,
+        MESSAGE_TYPE.TRANSACTION,
       ],
     });
 
