@@ -651,6 +651,9 @@
   "clearActivityDescription": {
     "message": "This resets the account's nonce and erases data from the activity tab in your wallet. Only the current account and network will be affected. Your balances and incoming transactions won't change."
   },
+  "click": {
+    "message": "Click"
+  },
   "clickToConnectLedgerViaWebHID": {
     "message": "Click here to connect your Ledger via WebHID",
     "description": "Text that can be clicked to open a browser popup for connecting the ledger device via webhid"
@@ -1543,6 +1546,10 @@
   },
   "followUsOnTwitter": {
     "message": "Follow us on Twitter"
+  },
+  "forMoreDetails": {
+    "message": "for more details.",
+    "description": "Click for more details message in popup modal displayed when installing a snap for the first time."
   },
   "forbiddenIpfsGateway": {
     "message": "Forbidden IPFS Gateway: Please specify a CID gateway"
@@ -3786,6 +3793,14 @@
   "snapsNoInsight": {
     "message": "The snap didn't return any insight"
   },
+  "snapsPrivacyWarningFirstMessage": {
+    "message": "Installing a snap retrieves data from third parties. They may collect your personal information.",
+    "description": "First part of a message in popup modal displayed when installing a snap for the first time."
+  },
+  "snapsPrivacyWarningSecondMessage": {
+    "message": "MetaMask has no access to this information.",
+    "description": "Second part of a message in popup modal displayed when installing a snap for the first time."
+  },
   "snapsSettingsDescription": {
     "message": "Manage your Snaps"
   },
@@ -4412,6 +4427,10 @@
   },
   "thingsToKeep": {
     "message": "Things to keep in mind:"
+  },
+  "thirdPartySoftware": {
+    "message": "Third party software",
+    "description": "Title of a popup modal displayed when installing a snap for the first time."
   },
   "thisCollection": {
     "message": "this collection"

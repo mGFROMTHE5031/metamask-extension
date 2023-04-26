@@ -66,6 +66,9 @@ interface AppState {
   onboardedInThisUISession: boolean;
   customTokenAmount: string;
   txId: number | null;
+  ///: BEGIN:ONLY_INCLUDE_IN(snaps)
+  snapsInstallPrivacyWarningShown: boolean;
+  ///: END:ONLY_INCLUDE_IN
 }
 
 interface AppSliceState {
@@ -130,6 +133,9 @@ const initialState: AppState = {
   customTokenAmount: '',
   scrollToBottom: true,
   txId: null,
+  ///: BEGIN:ONLY_INCLUDE_IN(snaps)
+  snapsInstallPrivacyWarningShown: false,
+  ///: END:ONLY_INCLUDE_IN
 };
 
 export default function reduceApp(
