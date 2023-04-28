@@ -6,7 +6,6 @@ import Popover from '../../../ui/popover';
 import Button from '../../../ui/button';
 import {
   AvatarIcon,
-  BUTTON_TYPES,
   ButtonLink,
   IconName,
   IconSize,
@@ -64,7 +63,6 @@ export default function SnapPrivacyWarning({ onOk }) {
             {t('click')}
             <ButtonLink
               className="snap-privacy-warning__more-details__link"
-              type={BUTTON_TYPES.LINK}
               href="https://metamask.io/faqs/"
               target="_blank"
               padding={0}
@@ -76,8 +74,8 @@ export default function SnapPrivacyWarning({ onOk }) {
         </Box>
         <Box className="snap-privacy-warning__ok-button" marginTop={6}>
           <Button
+            type="primary"
             className="snap-privacy-warning__button"
-            type={BUTTON_TYPES.PRIMARY}
             onClick={onOk}
           >
             {t('ok').toUpperCase()}
