@@ -94,6 +94,7 @@ import { UI_NOTIFICATIONS } from '../../shared/notifications';
 import { MILLISECOND, SECOND } from '../../shared/constants/time';
 import {
   ORIGIN_METAMASK,
+  ///: BEGIN:ONLY_INCLUDE_IN(snaps)
   SNAP_DIALOG_TYPES,
   ///: END:ONLY_INCLUDE_IN
   POLLING_TOKEN_ENVIRONMENT_TYPES,
