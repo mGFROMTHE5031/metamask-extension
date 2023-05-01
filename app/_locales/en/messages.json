@@ -733,9 +733,6 @@
   "connectCustodialAccountTitle": {
     "message": "Custodial Accounts"
   },
-  "connectHardwareWallet": {
-    "message": "Connect hardware wallet"
-  },
   "connectManually": {
     "message": "Manually connect to current site"
   },
@@ -882,9 +879,6 @@
   },
   "create": {
     "message": "Create"
-  },
-  "createAccount": {
-    "message": "Create account"
   },
   "createNewWallet": {
     "message": "Create a new wallet"
@@ -2477,9 +2471,6 @@
   },
   "notEnoughGas": {
     "message": "Not enough gas"
-  },
-  "notifications": {
-    "message": "Notifications"
   },
   "notifications10ActionText": {
     "message": "Visit in Settings",

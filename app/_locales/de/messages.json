@@ -645,9 +645,6 @@
   "connectAccountOrCreate": {
     "message": "Konto verbinden oder Neues erstellen"
   },
-  "connectHardwareWallet": {
-    "message": "Hardware-Wallet verknüpfen"
-  },
   "connectManually": {
     "message": "Manuelle Verbindung zur aktuellen Site"
   },
@@ -791,9 +788,6 @@
   },
   "create": {
     "message": "Erstellen"
-  },
-  "createAccount": {
-    "message": "Konto erstellen"
   },
   "createNewWallet": {
     "message": "Eine neue Wallet erstellen"
@@ -2237,9 +2231,6 @@
   },
   "notEnoughGas": {
     "message": "Nicht genügend Gas"
-  },
-  "notifications": {
-    "message": "Benachrichtigungen"
   },
   "notifications10ActionText": {
     "message": "Einstellungen ansehen",
