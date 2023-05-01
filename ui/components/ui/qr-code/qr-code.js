@@ -3,13 +3,9 @@ import React from 'react';
 import qrCode from 'qrcode-generator';
 import { connect } from 'react-redux';
 import { isHexPrefixed } from 'ethereumjs-util';
-import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard';
 import { toChecksumHexAddress } from '../../../../shared/modules/hexstring-utils';
-import Tooltip from '../tooltip';
-import { useI18nContext } from '../../../hooks/useI18nContext';
 import { AddressCopyButton } from '../../multichain/address-copy-button';
 import Box from '../box/box';
-import { Icon, IconName, IconSize } from '../../component-library';
 
 export default connect(mapStateToProps)(QrCodeView);
 
@@ -28,8 +24,6 @@ function QrCodeView(props) {
   const address = `${
     isHexPrefixed(data) ? 'ethereum:' : ''
   }${toChecksumHexAddress(data)}`;
-  const [copied, handleCopy] = useCopyToClipboard();
-  const t = useI18nContext();
   const qrImage = qrCode(4, 'M');
   qrImage.addData(address);
   qrImage.make();
@@ -58,31 +52,9 @@ function QrCodeView(props) {
           __html: qrImage.createTableTag(4),
         }}
       />
-      {process.env.MULTICHAIN ? (
-        <Box marginLeft={2} marginRight={2}>
-          <AddressCopyButton wrap address={toChecksumHexAddress(data)} />
-        </Box>
-      ) : (
-        <Tooltip
-          wrapperClassName="qr-code__address-container__tooltip-wrapper"
-          position="bottom"
-          title={copied ? t('copiedExclamation') : t('copyToClipboard')}
-        >
-          <div
-            className="qr-code__address-container"
-            onClick={() => {
-              handleCopy(toChecksumHexAddress(data));
-            }}
-          >
-            <div className="qr-code__address">{toChecksumHexAddress(data)}</div>
-            <Icon
-              name={copied ? IconName.CopySuccess : IconName.Copy}
-              size={IconSize.Sm}
-              marginInlineStart={3}
-            />
-          </div>
-        </Tooltip>
-      )}
+      <Box marginLeft={2} marginRight={2}>
+        <AddressCopyButton wrap address={toChecksumHexAddress(data)} />
+      </Box>
     </div>
   );
 }
