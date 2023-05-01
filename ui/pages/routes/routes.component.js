@@ -29,7 +29,6 @@ import NetworkDropdown from '../../components/app/dropdowns/network-dropdown';
 import AccountMenu from '../../components/app/account-menu';
 import { Modal } from '../../components/app/modals';
 import Alert from '../../components/ui/alert';
-import AppHeader from '../../components/app/app-header';
 import {
   AppHeader as MultichainAppHeader,
   AccountListMenu,
@@ -537,21 +536,7 @@ export default class Routes extends Component {
         <QRHardwarePopover />
         <Modal />
         <Alert visible={this.props.alertOpen} msg={alertMessage} />
-        {!this.hideAppHeader() &&
-          (process.env.MULTICHAIN ? (
-            <MultichainAppHeader />
-          ) : (
-            <AppHeader
-              hideNetworkIndicator={this.onInitializationUnlockPage()}
-              disableNetworkIndicator={this.onSwapsPage()}
-              onClick={this.onAppHeaderClick}
-              disabled={
-                this.onConfirmPage() ||
-                this.onEditTransactionPage() ||
-                (this.onSwapsPage() && !this.onSwapsBuildQuotePage())
-              }
-            />
-          ))}
+        {!this.hideAppHeader() && <MultichainAppHeader />}
         {this.showOnboardingHeader() && <OnboardingAppHeader />}
         {completedOnboarding ? <NetworkDropdown /> : null}
         {
@@ -559,11 +544,11 @@ export default class Routes extends Component {
           isUnlocked ? <InteractiveReplacementTokenNotification /> : null
           ///: END:ONLY_INCLUDE_IN
         }
-        {process.env.MULTICHAIN ? null : <AccountMenu />}
-        {process.env.MULTICHAIN && isAccountMenuOpen ? (
+        <AccountMenu />
+        {isAccountMenuOpen ? (
           <AccountListMenu onClose={() => toggleAccountMenu()} />
         ) : null}
-        {process.env.MULTICHAIN && isNetworkMenuOpen ? (
+        {isNetworkMenuOpen ? (
           <NetworkListMenu onClose={() => toggleNetworkMenu()} />
         ) : null}
         <div className="main-container-wrapper">
