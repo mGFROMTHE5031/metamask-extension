@@ -1645,9 +1645,6 @@
   "importTokenWarning": {
     "message": "Siapa pun dapat membuat token dengan nama apa pun, termasuk versi palsu dari token yang ada. Tambahkan dan perdagangkan dengan risiko ditanggung sendiri!"
   },
-  "importTokens": {
-    "message": "impor token"
-  },
   "importTokensCamelCase": {
     "message": "Impor token"
   },
@@ -1998,9 +1995,6 @@
   },
   "missingSettingRequest": {
     "message": "Minta di sini"
-  },
-  "missingToken": {
-    "message": "Tidak melihat token Anda?"
   },
   "moreComingSoon": {
     "message": "Selanjutnya akan segera hadir..."
