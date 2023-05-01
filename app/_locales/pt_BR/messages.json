@@ -2171,9 +2171,6 @@
   "stateLogsDescription": {
     "message": "Os registros de estado contêm os endereços da sua conta pública e as transações enviadas."
   },
-  "statusConnected": {
-    "message": "Conectado"
-  },
   "statusNotConnected": {
     "message": "Não conectado"
   },

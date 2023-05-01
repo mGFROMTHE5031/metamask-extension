@@ -3428,9 +3428,6 @@
   "status": {
     "message": "Durum"
   },
-  "statusConnected": {
-    "message": "Bağlandı"
-  },
   "statusNotConnected": {
     "message": "Bağlanmadı"
   },

@@ -3428,9 +3428,6 @@
   "status": {
     "message": "État"
   },
-  "statusConnected": {
-    "message": "Connecté"
-  },
   "statusNotConnected": {
     "message": "Non connecté"
   },

@@ -3428,9 +3428,6 @@
   "status": {
     "message": "Status"
   },
-  "statusConnected": {
-    "message": "Terhubung"
-  },
   "statusNotConnected": {
     "message": "Tidak terhubung"
   },

@@ -1543,9 +1543,6 @@
   "stateLogsDescription": {
     "message": "I log di stato contengono i tuoi indirizzi pubblici e le transazioni effettuate."
   },
-  "statusConnected": {
-    "message": "Connesso"
-  },
   "statusNotConnected": {
     "message": "Non connesso"
   },

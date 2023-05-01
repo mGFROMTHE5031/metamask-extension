@@ -3428,9 +3428,6 @@
   "status": {
     "message": "Κατάσταση"
   },
-  "statusConnected": {
-    "message": "Συνδεδεμένο"
-  },
   "statusNotConnected": {
     "message": "Δεν έχει συνδεθεί"
   },
