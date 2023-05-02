@@ -48,6 +48,7 @@ import {
   SubjectMetadataController,
   SubjectType,
 } from '@metamask/subject-metadata-controller';
+import { ApprovalType } from '@metamask/controller-utils';
 ///: BEGIN:ONLY_INCLUDE_IN(snaps)
 import { RateLimitController } from '@metamask/rate-limit-controller';
 import { NotificationController } from '@metamask/notification-controller';
@@ -259,7 +260,7 @@ export default class MetamaskController extends EventEmitter {
         MESSAGE_TYPE.ETH_SIGN,
         MESSAGE_TYPE.PERSONAL_SIGN,
         MESSAGE_TYPE.ETH_SIGN_TYPED_DATA,
-        MESSAGE_TYPE.TRANSACTION,
+        ApprovalType.Transaction,
       ],
     });
 
