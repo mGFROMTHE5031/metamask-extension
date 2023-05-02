@@ -2613,13 +2613,13 @@ export default class TransactionController extends EventEmitter {
     );
   }
 
-  _requestApproval(txMeta, shouldShowRequest = true) {
+  _requestApproval(txMeta, showPopup = true) {
     const id = this._getApprovalId(txMeta);
     const { origin } = txMeta;
     const type = MESSAGE_TYPE.TRANSACTION;
     const requestData = { txId: txMeta.id };
 
-    this.messagingSystem
+    return this.messagingSystem
       .call(
         'ApprovalController:addRequest',
         {
@@ -2628,7 +2628,7 @@ export default class TransactionController extends EventEmitter {
           type,
           requestData,
         },
-        shouldShowRequest,
+        showPopup,
       )
       .catch(() => {
         // Intentionally ignored as promise not currently used
@@ -2663,15 +2663,12 @@ export default class TransactionController extends EventEmitter {
     return String(txMeta.id);
   }
 
-  _addUnapprovedTxsApprovals() {
+  initApprovals() {
     const unapprovedTxs = this.txStateManager.getUnapprovedTxList();
-    Object.values(unapprovedTxs).forEach((txMeta) => {
-      this._requestApproval(txMeta, false);
-    });
-  }
-
-  addInitialTransactionApprovals(callback) {
-    this._addUnapprovedTxsApprovals();
-    callback();
+    return Promise.all(
+      Object.values(unapprovedTxs).map((txMeta) =>
+        this._requestApproval(txMeta, false),
+      ),
+    );
   }
 }
