@@ -748,6 +748,20 @@
         "immer": true
       }
     },
+    "@metamask/browser-passworder": {
+      "globals": {
+        "btoa": true,
+        "crypto.getRandomValues": true,
+        "crypto.subtle.decrypt": true,
+        "crypto.subtle.deriveKey": true,
+        "crypto.subtle.encrypt": true,
+        "crypto.subtle.exportKey": true,
+        "crypto.subtle.importKey": true
+      },
+      "packages": {
+        "browserify>buffer": true
+      }
+    },
     "@metamask/controller-utils": {
       "globals": {
         "URL": true,
@@ -949,11 +963,11 @@
     },
     "@metamask/eth-keyring-controller": {
       "packages": {
+        "@metamask/browser-passworder": true,
         "@metamask/eth-keyring-controller>@metamask/eth-hd-keyring": true,
         "@metamask/eth-keyring-controller>@metamask/eth-sig-util": true,
         "@metamask/eth-keyring-controller>@metamask/eth-simple-keyring": true,
         "@metamask/eth-keyring-controller>obs-store": true,
-        "@metamask/rpc-methods>@metamask/browser-passworder": true,
         "browserify>events": true
       }
     },
@@ -1494,20 +1508,6 @@
     "@metamask/rpc-methods-flask>nanoid": {
       "globals": {
         "crypto.getRandomValues": true
-      }
-    },
-    "@metamask/rpc-methods>@metamask/browser-passworder": {
-      "globals": {
-        "btoa": true,
-        "crypto.getRandomValues": true,
-        "crypto.subtle.decrypt": true,
-        "crypto.subtle.deriveKey": true,
-        "crypto.subtle.encrypt": true,
-        "crypto.subtle.exportKey": true,
-        "crypto.subtle.importKey": true
-      },
-      "packages": {
-        "browserify>buffer": true
       }
     },
     "@metamask/rpc-methods>nanoid": {
