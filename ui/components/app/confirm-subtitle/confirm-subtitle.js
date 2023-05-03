@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ERC1155, ERC721 } from '@metamask/controller-utils';
 import { useSelector } from 'react-redux';
 
 import { SECONDARY } from '../../../helpers/constants/common';
@@ -11,17 +12,19 @@ import {
 } from '../../../helpers/constants/design-system';
 import UserPreferencedCurrencyDisplay from '../user-preferenced-currency-display';
 import { getShouldShowFiat } from '../../../selectors';
-import { useTransactionInfo } from '../../../hooks/useTransactionInfo';
 
 const ConfirmSubTitle = ({
-  txData,
   hexTransactionAmount,
   subtitleComponent,
+  assetStandard,
 }) => {
   const shouldShowFiat = useSelector(getShouldShowFiat);
-  const { isNftTransfer } = useTransactionInfo(txData);
 
-  if (!shouldShowFiat && !isNftTransfer) {
+  if (
+    !shouldShowFiat &&
+    assetStandard !== ERC1155 &&
+    assetStandard !== ERC721
+  ) {
     return null;
   }
 
@@ -48,9 +51,9 @@ const ConfirmSubTitle = ({
 };
 
 ConfirmSubTitle.propTypes = {
+  assetStandard: PropTypes.string.isRequired,
   hexTransactionAmount: PropTypes.string,
   subtitleComponent: PropTypes.element,
-  txData: PropTypes.object.isRequired,
 };
 
 export default ConfirmSubTitle;

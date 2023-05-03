@@ -699,13 +699,14 @@ export default class ConfirmTransactionBase extends Component {
   }
 
   renderSubtitleComponent() {
-    const { subtitleComponent, hexTransactionAmount, txData } = this.props;
+    const { assetStandard, subtitleComponent, hexTransactionAmount } =
+      this.props;
 
     return (
       <ConfirmSubTitle
         hexTransactionAmount={hexTransactionAmount}
         subtitleComponent={subtitleComponent}
-        txData={txData}
+        assetStandard={assetStandard}
       />
     );
   }

@@ -24,6 +24,7 @@ import {
   getConversionRate,
   getNativeCurrency,
   getNftContracts,
+  getNfts,
 } from '../../ducks/metamask/metamask';
 import { TokenStandard } from '../../../shared/constants/transaction';
 import {
@@ -32,6 +33,7 @@ import {
 } from '../../../shared/modules/conversion.utils';
 import { EtherDenomination } from '../../../shared/constants/common';
 import { CHAIN_IDS, TEST_CHAINS } from '../../../shared/constants/network';
+import { isEqualCaseInsensitive } from '../../../shared/modules/string-utils';
 
 export default function ConfirmTokenTransactionBase({
   image = '',
@@ -48,6 +50,7 @@ export default function ConfirmTokenTransactionBase({
   hexMaximumTransactionFee,
 }) {
   const t = useContext(I18nContext);
+  const nfts = useSelector(getNfts);
   const contractExchangeRate = useSelector(contractExchangeRateSelector);
   const nativeCurrency = useSelector(getNativeCurrency);
   const currentCurrency = useSelector(getCurrentCurrency);
@@ -116,11 +119,23 @@ export default function ConfirmTokenTransactionBase({
 
   const assetImage = image;
   let title, subtitle, subtotalDisplay;
+  const isExistingNft = nfts?.find(
+    ({ address, tokenId: _tokenId }) =>
+      isEqualCaseInsensitive(tokenAddress, address) && _tokenId === tokenId,
+  );
+
   if (
     assetStandard === TokenStandard.ERC721 ||
     assetStandard === TokenStandard.ERC1155
   ) {
-    title = assetName || getTitleTokenDescription();
+    if (assetName) {
+      title = assetName;
+      if (!isExistingNft && assetStandard === TokenStandard.ERC721) {
+        title = `${title} #${tokenId}`;
+      }
+    } else {
+      title = getTitleTokenDescription();
+    }
     subtitle = `#${tokenId}`;
     subtotalDisplay =
       assetName || `${getTitleTokenDescription('text')} #${tokenId}`;
@@ -188,6 +203,7 @@ export default function ConfirmTokenTransactionBase({
 
   return (
     <ConfirmTransactionBase
+      assetStandard={assetStandard}
       toAddress={toAddress}
       image={assetImage}
       onEdit={onEdit}
