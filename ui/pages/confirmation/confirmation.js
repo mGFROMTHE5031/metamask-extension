@@ -228,6 +228,7 @@ export default function ConfirmationPage({
           dispatch,
           history,
           setInputState,
+          unnaprovedTxsCount,
         )
       : {};
   }, [
@@ -235,6 +236,7 @@ export default function ConfirmationPage({
     t,
     dispatch,
     history,
+    unnaprovedTxsCount,
     ///: BEGIN:ONLY_INCLUDE_IN(snaps)
     isSnapDialog,
     snapName,
@@ -385,7 +387,7 @@ export default function ConfirmationPage({
       <ConfirmationFooter
         alerts={
           alertState[pendingConfirmation.id] &&
-          unnaprovedTxsCount > 0 &&
+          !templatedValues.disableAlerts &&
           Object.values(alertState[pendingConfirmation.id])
             .filter((alert) => alert.dismissed === false)
             .map((alert, idx, filtered) => (

@@ -181,7 +181,14 @@ function getState(pendingApproval) {
   return {};
 }
 
-function getValues(pendingApproval, t, actions, history) {
+function getValues(
+  pendingApproval,
+  t,
+  actions,
+  history,
+  _setInputState,
+  unnaprovedTxsCount,
+) {
   const originIsMetaMask = pendingApproval.origin === 'metamask';
   const customRpcUrl = pendingApproval.requestData.rpcUrl;
   return {
@@ -410,6 +417,7 @@ function getValues(pendingApproval, t, actions, history) {
         ethErrors.provider.userRejectedRequest().serialize(),
       ),
     networkDisplay: !originIsMetaMask,
+    disableAlerts: !(unnaprovedTxsCount > 0),
   };
 }
 
