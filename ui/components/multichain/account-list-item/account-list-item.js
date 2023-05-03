@@ -134,7 +134,7 @@ export const AccountListItem = ({
             justifyContent={JustifyContent.spaceBetween}
             gap={2}
           >
-            <Text ellipsis as="div">
+            <Text ellipsis as="div" style={{ minWidth: '40%' }}>
               <ButtonLink
                 onClick={(e) => {
                   e.stopPropagation();
