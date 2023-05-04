@@ -606,6 +606,8 @@ describe('Transaction Controller', function () {
         cancelTxMeta.id,
       );
       assert.deepEqual(cancelTxMeta, memTxMeta);
+      // One for the initial addUnapprovedTransaction, one for the approval
+      assert.equal(messengerMock.call.callCount, 2);
     });
 
     it('should add only 1 cancel transaction when called twice with same actionId', async function () {
@@ -1383,6 +1385,7 @@ describe('Transaction Controller', function () {
           type: TransactionType.retry,
         },
       );
+      assert.equal(messengerMock.call.callCount, 0);
     });
 
     it('should call this.approveTransaction with the id of the returned tx', async function () {

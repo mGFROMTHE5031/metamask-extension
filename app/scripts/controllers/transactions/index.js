@@ -1246,7 +1246,9 @@ export default class TransactionController extends EventEmitter {
     }
 
     this.addTransaction(newTxMeta);
-    await this.approveTransaction(newTxMeta.id, actionId);
+    await this.approveTransaction(newTxMeta.id, actionId, {
+      hasApprovalRequest: false,
+    });
     return newTxMeta;
   }
 
@@ -1304,7 +1306,9 @@ export default class TransactionController extends EventEmitter {
     }
 
     this.addTransaction(newTxMeta);
-    await this.approveTransaction(newTxMeta.id, actionId);
+    await this.approveTransaction(newTxMeta.id, actionId, {
+      hasApprovalRequest: false,
+    });
     return newTxMeta;
   }
 
@@ -1343,8 +1347,10 @@ export default class TransactionController extends EventEmitter {
    *
    * @param {number} txId - the tx's Id
    * @param {string} actionId - actionId passed from UI
+   * @param opts - options object
+   * @param opts.hasApprovalRequest - whether the transaction has an approval request
    */
-  async approveTransaction(txId, actionId) {
+  async approveTransaction(txId, actionId, { hasApprovalRequest = true } = {}) {
     // TODO: Move this safety out of this function.
     // Since this transaction is async,
     // we need to keep track of what is currently being signed,
@@ -1359,7 +1365,9 @@ export default class TransactionController extends EventEmitter {
     try {
       // approve
       this.txStateManager.setTxStatusApproved(txId);
-      this._acceptApproval(txMeta);
+      if (hasApprovalRequest) {
+        this._acceptApproval(txMeta);
+      }
       // get next nonce
       const fromAddress = txMeta.txParams.from;
       // wait for a nonce
