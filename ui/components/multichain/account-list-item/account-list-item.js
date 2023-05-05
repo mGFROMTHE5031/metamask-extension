@@ -161,6 +161,14 @@ export const AccountListItem = ({
               display={DISPLAY.FLEX}
               flexDirection={FLEX_DIRECTION.ROW}
               alignItems={AlignItems.center}
+              ellipsis
+              style={{
+                maxWidth: '60%',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                border: '1px solid red',
+                whiteSpace: 'nowrap',
+              }}
             >
               {connectedAvatar ? (
                 <AvatarFavicon

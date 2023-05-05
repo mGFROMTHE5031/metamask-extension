@@ -39,6 +39,12 @@
   }
 
   .currency-display-component {
-    white-space: nowrap;
+    /* white-space: nowrap; */
+  }
+
+  .currency-display-component__text {
+    white-space: unset;
+    overflow: unset;
+    text-overflow: unset;
   }
 }
