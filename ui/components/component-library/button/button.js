@@ -7,7 +7,7 @@ import { ButtonLink } from '../button-link';
 
 import { BUTTON_VARIANT } from './button.constants';
 
-export const Button = ({ variant, ...props }) => {
+export const Button = ({ variant = BUTTON_VARIANT.PRIMARY, ...props }) => {
   switch (variant) {
     case BUTTON_VARIANT.PRIMARY:
       return <ButtonPrimary {...props} />;
