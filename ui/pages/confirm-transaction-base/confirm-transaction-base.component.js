@@ -132,6 +132,7 @@ export default class ConfirmTransactionBase extends Component {
     isApprovalOrRejection: PropTypes.bool,
     assetStandard: PropTypes.string,
     useCurrencyRateCheck: PropTypes.bool,
+    displayAccountBalanceHeader: PropTypes.bool,
   };
 
   state = {
@@ -802,6 +803,7 @@ export default class ConfirmTransactionBase extends Component {
       image,
       isApprovalOrRejection,
       assetStandard,
+      displayAccountBalanceHeader,
       title,
     } = this.props;
     const {
@@ -901,6 +903,7 @@ export default class ConfirmTransactionBase extends Component {
           isApprovalOrRejection={isApprovalOrRejection}
           assetStandard={assetStandard}
           txData={txData}
+          displayAccountBalanceHeader={displayAccountBalanceHeader}
         />
       </TransactionModalContextProvider>
     );
